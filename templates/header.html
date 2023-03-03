@@ -1,0 +1,35 @@
+<header
+  class="d-flex flex-wrap justify-content-center py-3 mb-4 fixed-top bg-dark"
+>
+  <ul class="nav nav-pills">
+	{% if SiteName == "Home" %}
+    <li class="nav-item anim">
+      <a href="/" class="nav-link active" aria-current="page">Hjem</a>
+    </li>
+    {% else %}
+    <li class="nav-item anim"><a href="/" class="nav-link">Hjem</a></li>
+	{% endif %}
+	{% if SiteName == "Contact" %}
+    <li class="nav-item anim">
+      <a href="/contact" class="nav-link active" aria-current="page">Kontakt</a>
+    </li>
+    {% else %}
+    <li class="nav-item anim"><a href="/contact" class="nav-link">Kontakt</a></li>
+	{% endif %}
+	{% if SiteName == "Prices" %}
+    <li class="nav-item anim">
+      <a href="/prices" class="nav-link active" aria-current="page">Priser</a>
+    </li>
+    {% else %}
+    <li class="nav-item anim"><a href="/prices" class="nav-link">Priser</a></li>
+	{% endif %}
+	{% if SiteName == "About" %}
+    <li class="nav-item anim">
+      <a href="/about" class="nav-link active" aria-current="page">Om</a>
+    </li>
+    {% else %}
+    <li class="nav-item anim"><a href="/about" class="nav-link">Om</a></li>
+    {% endif %}
+  </ul>
+</header>
+<script src="/static/js/header-show-effect.js"></script>

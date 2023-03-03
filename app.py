@@ -1,5 +1,7 @@
 from __future__ import division
 import data.settings as S
+import os
+os.system(".\\build.bat")
 
 from loguru import logger
 
@@ -20,18 +22,16 @@ import uuid
 import re
 logger.success("Imported External Modules")
 
-import modules.core.time as time
-import modules.core.site as site
-import modules.user.Users as Users
-import modules.core.clients as clients
-import modules.user.Message as Message
-import modules.core.cookies as cookies
+import modules.core as core
+import modules.core.auth as auth
+import modules.core.cache as cache
+import modules.core.document as document
 import db as DB
 logger.success("Imported Internal Modules")
 
 
 UPLOAD_FOLDER = "static/favicons/uploads"
-EMAIL_REGEX = r"[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}"
+EMAIL_REGEX = r"\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b"
 
 app = Flask(__name__)
 CORS(app)
@@ -80,7 +80,6 @@ def seconds_to_hhmmss(seconds):
 
 @app.route("/")
 def HomePage():
-    ID = str(session.get("CID"))
     return render_template("index.html", SiteName="Home")
 
 

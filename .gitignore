@@ -1,0 +1,6 @@
+.rnd
+.stripe
+.flask
+cert.pem
+key.pem
+./logs/*
